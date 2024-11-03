@@ -33,7 +33,11 @@ class Matriz:
         else:
             return ", ".join(saida)
 
-        
+    def eh_uma_matriz_identidade(self) -> bool:
+        tipo_de_matriz = self.tipo_de_matriz().split(',')[0]
+        if tipo_de_matriz == "matriz quadrada":
+            return True        
+
     def __eh_uma_matriz_nula(self) -> bool:
         for i in range(self.linhas):
             for j in range(self.colunas):
@@ -57,8 +61,9 @@ class Matriz:
                 saida[i].append(self.elementos[i][j].valor)
         return str(saida)
 
-matriz = Matriz(2, 1) # [[0, 0], [0, 0], [0, 0]] 
+matriz = Matriz(2, 2) # [[0, 0], [0, 0], [0, 0]] 
 print(matriz)
 matriz.elementos[0][0].valor = 2
 print(matriz)
 print(matriz.tipo_de_matriz())
+print(matriz.eh_uma_matriz_identidade())
